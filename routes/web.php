@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,11 +22,13 @@ Route::get("/greeting", function() {
     return view("greeting");
 });
 
-Route::get("/user/{id?}/{name?}", function($userId="1",$userName="arif"){
-    // return "User id ".$userId." User name is: ".$userName;
-    return view("user.index", [
-        "userId"=>$userId,
-        "userName"=>$userName
-    ]);
-});
+// Route::get("/user/{id?}/{name?}", function($userId="1",$userName="arif"){
+//     // return "User id ".$userId." User name is: ".$userName;
+//     return view("user.index", [
+//         "userId"=>$userId,
+//         "userName"=>$userName
+//     ]);
+// });
+
+Route::get("/user/{id}/{name}",[UserController::class, "index"]);
 
