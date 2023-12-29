@@ -18,10 +18,14 @@ Route::get('/', function () {
 });
 
 Route::get("/greeting", function() {
-    return "Hello Binu";
+    return view("greeting");
 });
 
 Route::get("/user/{id?}/{name?}", function($userId="1",$userName="arif"){
-    return "User id ".$userId." User name is: ".$userName;
+    // return "User id ".$userId." User name is: ".$userName;
+    return view("user.index", [
+        "userId"=>$userId,
+        "userName"=>$userName
+    ]);
 });
 
