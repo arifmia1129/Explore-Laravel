@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +33,8 @@ Route::get("/greeting", function() {
 // });
 
 Route::get("/user/{id}/{name}",[UserController::class, "index"]);
+
+Route::resource('photos', PhotoController::class);
+
+Route::get("student", StudentController::class);
 
